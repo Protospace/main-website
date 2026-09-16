@@ -134,28 +134,6 @@ main h1 {
 	height: 300px;
 	border: 0;
 }
-.search {
-	display: flex;
-	border: 2px solid var(--ink);
-	border-radius: 5px;
-	overflow: hidden;
-	height: 60px;
-}
-.search input {
-	min-width: 0;
-	flex: 1;
-	border: 0;
-	padding: 15px;
-	background: #fff8;
-	font: 16px Lato;
-}
-.search button {
-	width: 82px;
-	border: 0;
-	border-left: 2px solid var(--ink);
-	font-size: 26px;
-	background: #eee;
-}
 .home-intro {
 	margin-top: 0;
 }
