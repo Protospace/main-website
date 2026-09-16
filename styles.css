@@ -120,6 +120,7 @@ main h1 {
 .entry p + ul {
 	margin-top: -24px;
 }
+.entry h2,
 .entry h3 {
 	font:
 		300 32px/1.2 "Yanone Kaffeesatz",
@@ -209,7 +210,7 @@ footer {
 footer a {
 	color: #eee;
 }
-footer h4 {
+footer p {
 	text-align: center;
 	font:
 		300 24px "Yanone Kaffeesatz",
