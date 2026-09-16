@@ -1,0 +1,38 @@
+# Protospace
+
+> Protospace is a volunteer-run, non-profit makerspace in Calgary, Alberta, Canada. Members share access to workshop equipment, workspace, knowledge, and a community of makers.
+
+## Main pages
+
+- [Home](https://protospace.ca/): Overview of Protospace, its community, facilities, and membership.
+- [About the space](https://protospace.ca/the-space/): Description of the facility, available areas, and member equipment.
+- [Membership](https://protospace.ca/join-us/): Membership dues, benefits, process, duties, and frequently asked questions.
+- [Contact](https://protospace.ca/contact/): Contact information, address, parking, transit, and directions.
+
+## Facilities
+
+- [Wood Shop](https://protospace.ca/wood-shop/): Woodworking equipment and workspace.
+- [Metal Shop](https://protospace.ca/metal-shop/): Metalworking equipment and workspace.
+- [Laser Cutters](https://protospace.ca/laser-cutters/): Laser cutting equipment and related CNC tools.
+- [Sewing Room](https://protospace.ca/sewing-room/): Sewing, embroidery, garment printing, and textile equipment.
+- [Electronics Lab](https://protospace.ca/electronics-lab/): Electronics workbenches, test equipment, and components.
+- [3D Printers](https://protospace.ca/3d-printers/): Filament and resin 3D printers.
+
+## Visiting
+
+Protospace hosts an open house every Tuesday from 7:00 pm to 9:00 pm, including holidays. Visitors can drop in for a tour, meet members, and learn about the space.
+
+Address: 1530 27th Avenue NE, Bay 108, Calgary, Alberta, Canada, T2E 7S6.
+
+## External resources
+
+- [Member portal](https://my.protospace.ca/): Member services and classes.
+- [Wiki](http://wiki.protospace.ca): Community documentation and FAQ.
+- [YouTube](https://www.youtube.com/user/calgaryprotospace/playlists): Protospace videos.
+- [Facebook](https://www.facebook.com/CalgaryProtospace/): Protospace on Facebook.
+
+## Contact
+
+Email: info@protospace.ca
+
+Telephone voicemail: +1 (587) 774-5672
