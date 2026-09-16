@@ -1,4 +1,38 @@
-@import url("https://fonts.googleapis.com/css2?family=Grand+Hotel&family=Lato:wght@400;700&family=Yanone+Kaffeesatz:wght@300;400&display=swap");
+@font-face {
+	font-family: "Grand Hotel";
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url("/assets/fonts/grand-hotel.ttf") format("truetype");
+}
+@font-face {
+	font-family: Lato;
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url("/assets/fonts/lato-regular.ttf") format("truetype");
+}
+@font-face {
+	font-family: Lato;
+	font-style: normal;
+	font-weight: 700;
+	font-display: swap;
+	src: url("/assets/fonts/lato-bold.ttf") format("truetype");
+}
+@font-face {
+	font-family: "Yanone Kaffeesatz";
+	font-style: normal;
+	font-weight: 300;
+	font-display: swap;
+	src: url("/assets/fonts/yanone-kaffeesatz-light.ttf") format("truetype");
+}
+@font-face {
+	font-family: "Yanone Kaffeesatz";
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url("/assets/fonts/yanone-kaffeesatz-regular.ttf") format("truetype");
+}
 :root {
 	--blue: #287abd;
 	--ink: #292929;
