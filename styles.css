@@ -303,6 +303,9 @@ footer p {
 }
 @media (max-width: 560px) {
 	.area-grid {
+		width: calc(100% - 56px);
+		margin-right: auto;
+		margin-left: auto;
 		grid-template-columns: 1fr;
 	}
 }
