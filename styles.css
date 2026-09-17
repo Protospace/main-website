@@ -3,35 +3,35 @@
 	font-style: normal;
 	font-weight: 400;
 	font-display: optional;
-	src: url("/assets/fonts/grand-hotel.ttf") format("truetype");
+	src: url("/assets/fonts/grand-hotel.woff2") format("woff2");
 }
 @font-face {
 	font-family: Lato;
 	font-style: normal;
 	font-weight: 400;
 	font-display: swap;
-	src: url("/assets/fonts/lato-regular.ttf") format("truetype");
+	src: url("/assets/fonts/lato-regular.woff2") format("woff2");
 }
 @font-face {
 	font-family: Lato;
 	font-style: normal;
 	font-weight: 700;
 	font-display: swap;
-	src: url("/assets/fonts/lato-bold.ttf") format("truetype");
+	src: url("/assets/fonts/lato-bold.woff2") format("woff2");
 }
 @font-face {
 	font-family: "Yanone Kaffeesatz";
 	font-style: normal;
 	font-weight: 300;
 	font-display: swap;
-	src: url("/assets/fonts/yanone-kaffeesatz-light.ttf") format("truetype");
+	src: url("/assets/fonts/yanone-kaffeesatz-light.woff2") format("woff2");
 }
 @font-face {
 	font-family: "Yanone Kaffeesatz";
 	font-style: normal;
 	font-weight: 400;
 	font-display: swap;
-	src: url("/assets/fonts/yanone-kaffeesatz-regular.ttf") format("truetype");
+	src: url("/assets/fonts/yanone-kaffeesatz-regular.woff2") format("woff2");
 }
 :root {
 	--blue: #287abd;
