@@ -193,7 +193,7 @@ main h1 {
 }
 footer {
 	background: var(--blue);
-	color: #eee;
+	color: #fff;
 	padding: 50px 0 18px;
 }
 .footer-inner {
@@ -208,7 +208,7 @@ footer {
 	margin-bottom: 65px;
 }
 footer a {
-	color: #eee;
+	color: #fff;
 }
 footer p {
 	text-align: center;
