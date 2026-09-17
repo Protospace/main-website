@@ -89,6 +89,24 @@ If this information changes, update the sidebar, relevant page copy, JSON-LD, an
 - Do not link page content to the old WordPress upload paths.
 - Give every image a useful `alt` attribute. Use `alt=""` only for genuinely decorative images.
 - Keep image dimensions or CSS aspect ratios where possible to reduce layout shift.
+- For every JPEG photo used in page content, generate a matching WebP version and serve it with the original JPEG as the fallback in a `<picture>` element:
+
+  ```html
+  <picture>
+  	<source
+  		type="image/webp"
+  		srcset="/assets/example.webp 640w"
+  		sizes="(max-width: 760px) 100vw, 750px"
+  	/>
+  	<img
+  		width="640"
+  		height="480"
+  		src="/assets/example.jpg"
+  		alt="Descriptive photo description"
+  	/>
+  </picture>
+  ```
+- Keep the WebP and fallback `srcset` candidates equivalent, preserve the fallback image's `alt`, dimensions, loading behavior, and decoding attributes, and verify that every referenced variant exists.
 
 ## Accessibility
 
