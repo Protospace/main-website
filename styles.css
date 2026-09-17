@@ -172,6 +172,10 @@ main h1 {
 .home-intro {
 	margin-top: 0;
 }
+.home-intro h1 {
+	/* Keep the serif fallback smaller while Grand Hotel loads. */
+	font-size-adjust: 0.4;
+}
 .home-gallery {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
