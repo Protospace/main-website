@@ -33,18 +33,22 @@ The Protospace WordPress site has been replaced with static HTML and CSS pages. 
    git push -u origin update-page
    ```
 
-6. Go to your fork on GitHub and click **Compare & pull request**. Set the base repository to `Protospace/main-website`, choose the appropriate base branch, describe what changed, and submit the pull request.
+6. Go to your fork on GitHub and click **Compare & pull request**. Set the base repository to `Protospace/main-website`, choose `master` as the base branch, describe what changed, and submit the pull request.
 
    Maintainers will review the pull request, request changes if needed, and merge it when it is ready. After your pull request is merged, you can sync your fork before starting another change:
 
    ```bash
-   git checkout main
+   git checkout master
    git fetch upstream
-   git reset --hard upstream/main
-   git push origin main --force-with-lease
+   git reset --hard upstream/master
+   git push origin master --force-with-lease
    ```
 
 There is no build step. Edit the generated HTML and CSS files directly. Keep the existing responsive layout, local asset paths, accessibility text, metadata, and external Wiki/Portal links intact.
+
+## Deploying changes
+
+The production server will automatically pull changes from this repo every 5 minutes.
 
 ## Using a coding agent
 
