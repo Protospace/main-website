@@ -81,6 +81,12 @@ Keep the current open-house information consistent:
 
 If this information changes, update the sidebar, relevant page copy, JSON-LD, and `llms.txt` together.
 
+## Stylesheet cache versioning
+
+- Every HTML page references `styles.css` with a cache-busting epoch query parameter, such as `/styles.css?v=1790211252`.
+- Whenever `styles.css` changes, update the `?v=` value in every HTML page to the current Unix epoch timestamp.
+- Keep the preload and stylesheet URLs synchronized so both use the same version.
+
 ## Assets
 
 - Store local images in `/assets/`.
