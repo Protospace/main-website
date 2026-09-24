@@ -17,7 +17,7 @@ This is the static website for Protospace, a non-profit makerspace in Calgary, A
 - Every page must be an `index.html` inside its own route directory:
   - `/index.html`
   - `/about/index.html`
-  - `/spaces/index.html`
+  - `/the-space/index.html`
   - `/join-us/index.html`
   - `/contact/index.html`
   - `/wood-shop/index.html`

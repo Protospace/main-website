@@ -6,7 +6,7 @@
 
 - [Home](https://protospace.ca/): Overview of Protospace, its community, facilities, and membership.
 - [About Protospace](https://protospace.ca/about/): Background on Protospace, its volunteer-run community, mission, and how to visit.
-- [Spaces](https://protospace.ca/spaces/): Description of the facility, available areas, and member equipment.
+- [Spaces](https://protospace.ca/the-space/): Description of the facility, available areas, and member equipment.
 - [Membership](https://protospace.ca/join-us/): Membership dues, benefits, process, duties, and frequently asked questions.
 - [Contact](https://protospace.ca/contact/): Contact information, address, parking, transit, and directions.
 
