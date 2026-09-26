@@ -84,10 +84,19 @@
 				<h1>Tools</h1>
 				<div class="entry">
 					<p>
-						Browse the tools and equipment available to Protospace members. This catalog follows the
-						categories and ordering on the <a href="https://wiki.protospace.ca/Tools_we_have" class="external">Protospace Wiki</a>.
+						Browse the tools and equipment available to Protospace members. This catalog
+						comes from the <a href="https://wiki.protospace.ca/Tools_we_have" class="external">Protospace Wiki</a>.
 					</p>
-					<nav class="tools-toc" aria-label="Tool categories">
+					<h2>Search</h2>
+					<div class="tools-search">
+						<label for="tool-search">Search tools <span id="tool-results-count" class="tools-results-count" hidden> - Results: …</span></label>
+						<div class="tools-search-controls">
+							<input id="tool-search" type="search" placeholder="Search by tool name…" autocomplete="off" />
+							<button id="tool-search-clear" type="button" hidden>Clear</button>
+						</div>
+					</div>
+					<h2 id="tools-categories-heading">Categories</h2>
+					<nav id="tools-toc" class="tools-toc" aria-label="Tool categories">
 						<strong>Jump to a category</strong>
 						<ul id="tools-toc-list"></ul>
 					</nav>
@@ -104,50 +113,74 @@
 						.then((tools) => {
 							const list = document.querySelector("#tools-list");
 							const toc = document.querySelector("#tools-toc-list");
-							const categories = new Map();
-							tools.forEach((tool) => {
-								if (!categories.has(tool.category)) categories.set(tool.category, []);
-								categories.get(tool.category).push(tool);
-							});
-							list.replaceChildren();
-							toc.replaceChildren();
-							for (const [category, categoryTools] of categories) {
-								const sectionId = `tools-${category.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}`;
-								const tocItem = document.createElement("li");
-								const tocLink = document.createElement("a");
-								tocLink.href = `#${sectionId}`;
-								tocLink.textContent = category;
-								tocItem.append(tocLink);
-								toc.append(tocItem);
-								const heading = document.createElement("h3");
-								heading.id = sectionId;
-								const headingText = document.createElement("span");
-								headingText.textContent = category;
-								const backLink = document.createElement("a");
-								backLink.className = "category-back";
-								backLink.href = "#top";
-								backLink.textContent = "Back to Top";
-								heading.append(headingText, backLink);
-								list.append(heading);
-								const grid = document.createElement("div");
-								grid.className = "tools-grid";
-								for (const tool of categoryTools) {
-									const card = document.createElement("a");
-									card.className = "tool-card external";
-									card.href = tool.link;
-									card.target = "_blank";
-									card.rel = "noopener noreferrer";
-									const image = document.createElement("img");
-									image.src = tool["photo file"];
-									image.alt = tool.name;
-									image.loading = "lazy";
-									const name = document.createElement("span");
-									name.textContent = tool.name;
-									card.append(image, name);
-									grid.append(card);
+							const searchInput = document.querySelector("#tool-search");
+							const clearButton = document.querySelector("#tool-search-clear");
+							const resultsCount = document.querySelector("#tool-results-count");
+							const categoriesHeading = document.querySelector("#tools-categories-heading");
+							const tocNav = document.querySelector("#tools-toc");
+							const normalize = (value) => value.normalize("NFKD").toLowerCase().replace(/[^\p{L}\p{N}]+/gu, "");
+							const render = () => {
+								const query = normalize(searchInput.value);
+								const categories = new Map();
+								const matchingTools = tools
+									.filter((tool) => !query || normalize(tool.name).includes(query));
+								resultsCount.hidden = !query;
+								categoriesHeading.hidden = Boolean(query);
+								tocNav.hidden = Boolean(query);
+								resultsCount.textContent = ` - Results: ${matchingTools.length}`;
+								matchingTools
+									.forEach((tool) => {
+										if (!categories.has(tool.category)) categories.set(tool.category, []);
+										categories.get(tool.category).push(tool);
+									});
+								list.replaceChildren();
+								toc.replaceChildren();
+								clearButton.hidden = !query;
+								for (const [category, categoryTools] of categories) {
+									const sectionId = `tools-${normalize(category)}`;
+									const tocItem = document.createElement("li");
+									const tocLink = document.createElement("a");
+									tocLink.href = `#${sectionId}`;
+									tocLink.textContent = category;
+									tocItem.append(tocLink);
+									toc.append(tocItem);
+									const heading = document.createElement("h3");
+									heading.id = sectionId;
+									const headingText = document.createElement("span");
+									headingText.textContent = category;
+									const backLink = document.createElement("a");
+									backLink.className = "category-back";
+									backLink.href = "#top";
+									backLink.textContent = "Back to Top";
+									heading.append(headingText, backLink);
+									list.append(heading);
+									const grid = document.createElement("div");
+									grid.className = "tools-grid";
+									for (const tool of categoryTools) {
+										const card = document.createElement("a");
+										card.className = "tool-card external";
+										card.href = tool.link;
+										card.target = "_blank";
+										card.rel = "noopener noreferrer";
+										const image = document.createElement("img");
+										image.src = tool["photo file"];
+										image.alt = tool.name;
+										image.loading = "lazy";
+										const name = document.createElement("span");
+										name.textContent = tool.name;
+										card.append(image, name);
+										grid.append(card);
+									}
+									list.append(grid);
 								}
-								list.append(grid);
-							}
+							};
+							searchInput.addEventListener("input", render);
+							clearButton.addEventListener("click", () => {
+								searchInput.value = "";
+								searchInput.focus();
+								render();
+							});
+							render();
 						})
 						.catch((error) => {
 							document.querySelector("#tools-list").textContent = error.message;

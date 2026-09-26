@@ -379,6 +379,38 @@ footer p {
 	}
 }
 
+.tools-search {
+	margin: 0 0 32px;
+}
+.tools-search label {
+	display: block;
+	margin-bottom: 8px;
+	font-weight: 700;
+}
+.tools-search-controls {
+	display: flex;
+	gap: 8px;
+}
+.tools-search input {
+	min-width: 0;
+	flex: 1;
+	padding: 10px 12px;
+	border: 1px solid #0005;
+	border-radius: 4px;
+	font: inherit;
+}
+.tools-search button {
+	padding: 10px 16px;
+	border: 1px solid #0005;
+	border-radius: 4px;
+	background: #eee;
+	font: inherit;
+	cursor: pointer;
+}
+.tools-results-count {
+	font-size: 14px;
+	font-weight: 400;
+}
 .tools-toc {
 	margin: 32px 0;
 	padding: 16px 20px;
