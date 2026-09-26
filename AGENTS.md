@@ -67,7 +67,7 @@ Keep source code pleasant for humans to read and edit.
 
 When adding or editing a page, match the existing structure:
 
-- Header with Protospace logo and links to Spaces, Tools, Membership, Wiki, Portal, and Contact
+- Header with Protospace logo and links to Spaces, Tools, Membership, Contact, Portal, and Wiki
 - Main page content with one meaningful `<h1>`
 - Sidebar containing the current open-house information, address, parking details, map iframe, and search control where applicable
 - Footer containing YouTube, FAQ, and Facebook links
