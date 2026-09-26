@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<link rel="icon" href="/assets/favicon.png" type="image/png" />
+	<meta name="description" content="Browse the current tools and equipment available to Protospace members." />
+	<link rel="canonical" href="https://protospace.ca/tools/" />
+	<meta property="og:title" content="Tools – Protospace" />
+	<meta property="og:description" content="Browse the current tools and equipment available to Protospace members." />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://protospace.ca/tools/" />
+	<meta property="og:image" content="https://protospace.ca/assets/FrontProto-1024x455.jpg" />
+	<meta property="og:site_name" content="Protospace" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<title>Tools – Protospace</title>
+	<link rel="preload" href="/styles.css?v=1790211252" as="style" />
+	<link rel="stylesheet" href="/styles.css?v=1790211252" />
+		<script type="application/ld+json">
+{
+	"@context": "https://schema.org",
+	"@type": [
+		"LocalBusiness",
+		"NonprofitOrganization"
+	],
+	"@id": "https://protospace.ca/#organization",
+	"name": "Protospace",
+	"description": "Protospace is a volunteer-run, non-profit makerspace in Calgary with shared woodworking, metalworking, sewing, electronics, laser cutting, and 3D printing facilities.",
+	"url": "https://protospace.ca/",
+	"logo": "https://protospace.ca/assets/logo.png",
+	"image": "https://protospace.ca/assets/FrontProto-1024x455.jpg",
+	"telephone": "+1-587-774-5672",
+	"email": "info@protospace.ca",
+	"address": {
+		"@type": "PostalAddress",
+		"streetAddress": "1530 27th Avenue NE, Bay 108",
+		"addressLocality": "Calgary",
+		"addressRegion": "AB",
+		"postalCode": "T2E 7S6",
+		"addressCountry": "CA"
+	},
+	"areaServed": "Calgary, Alberta, Canada",
+	"priceRange": "$55/month",
+	"sameAs": [
+		"https://www.facebook.com/CalgaryProtospace/",
+		"https://www.youtube.com/user/calgaryprotospace/playlists"
+	],
+	"openingHoursSpecification": {
+		"@type": "OpeningHoursSpecification",
+		"dayOfWeek": "https://schema.org/Tuesday",
+		"opens": "19:00",
+		"closes": "21:00",
+		"description": "Public open house every Tuesday from 7:00 pm to 9:00 pm, including holidays. Visitors can drop in for a tour."
+	},
+	"contactPoint": {
+		"@type": "ContactPoint",
+		"telephone": "+1-587-774-5672",
+		"email": "info@protospace.ca",
+		"contactType": "customer service"
+	}
+}
+		</script>
+	</head>
+
+<body>
+	<header id="top">
+		<div class="nav-wrap">
+			<a class="brand" href="/"><img width="360" height="70" src="/assets/logo-white.svg" alt="Protospace" /></a>
+			<nav class="nav">
+				<a href="/about/">About</a>
+				<a href="/the-space/">Spaces</a>
+				<a href="/tools/">Tools</a>
+				<a href="/join-us/">Membership</a>
+				<a href="https://wiki.protospace.ca" class="external">Wiki</a>
+				<a href="https://my.protospace.ca" class="external">Portal</a>
+				<a href="/contact/">Contact</a>
+			</nav>
+		</div>
+	</header>
+	<div class="content">
+		<div class="layout">
+			<main>
+				<h1>Tools</h1>
+				<div class="entry">
+					<p>
+						Browse the tools and equipment available to Protospace members. This catalog follows the
+						categories and ordering on the <a href="https://wiki.protospace.ca/Tools_we_have" class="external">Protospace Wiki</a>.
+					</p>
+					<nav class="tools-toc" aria-label="Tool categories">
+						<strong>Jump to a category</strong>
+						<ul id="tools-toc-list"></ul>
+					</nav>
+					<div id="tools-list" class="tools-list" aria-live="polite">
+						<p>Loading tools…</p>
+					</div>
+				</div>
+				<script>
+					fetch("/tools.json")
+						.then((response) => {
+							if (!response.ok) throw new Error("Could not load the tools catalog.");
+							return response.json();
+						})
+						.then((tools) => {
+							const list = document.querySelector("#tools-list");
+							const toc = document.querySelector("#tools-toc-list");
+							const categories = new Map();
+							tools.forEach((tool) => {
+								if (!categories.has(tool.category)) categories.set(tool.category, []);
+								categories.get(tool.category).push(tool);
+							});
+							list.replaceChildren();
+							toc.replaceChildren();
+							for (const [category, categoryTools] of categories) {
+								const sectionId = `tools-${category.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}`;
+								const tocItem = document.createElement("li");
+								const tocLink = document.createElement("a");
+								tocLink.href = `#${sectionId}`;
+								tocLink.textContent = category;
+								tocItem.append(tocLink);
+								toc.append(tocItem);
+								const heading = document.createElement("h3");
+								heading.id = sectionId;
+								const headingText = document.createElement("span");
+								headingText.textContent = category;
+								const backLink = document.createElement("a");
+								backLink.className = "category-back";
+								backLink.href = "#top";
+								backLink.textContent = "Back to Top";
+								heading.append(headingText, backLink);
+								list.append(heading);
+								const grid = document.createElement("div");
+								grid.className = "tools-grid";
+								for (const tool of categoryTools) {
+									const card = document.createElement("a");
+									card.className = "tool-card external";
+									card.href = tool.link;
+									card.target = "_blank";
+									card.rel = "noopener noreferrer";
+									const image = document.createElement("img");
+									image.src = tool["photo file"];
+									image.alt = tool.name;
+									image.loading = "lazy";
+									const name = document.createElement("span");
+									name.textContent = tool.name;
+									card.append(image, name);
+									grid.append(card);
+								}
+								list.append(grid);
+							}
+						})
+						.catch((error) => {
+							document.querySelector("#tools-list").textContent = error.message;
+						});
+				</script>
+			</main>
+			<aside class="sidebar">
+				<section>
+					<h2>2026 Schedule:</h2>
+					<p class="green">
+						Open House every Tuesday from 7-9 pm (even holidays). Just drop in for a tour!
+					</p>
+					<p>
+						<a href="https://youtu.be/B9w5G6Rn99A" class="external">Watch the Protospace mini tour video</a>
+					</p>
+				</section>
+				<section>
+					<p>1530 27th Avenue NE<br />Bay 108<br />Calgary, Alberta, Canada<br />T2E 7S6</p>
+					<p><b>Parking:</b> For open house, park in the front lot (southeast) or on the street.</p>
+					<iframe
+						class="map"
+						loading="lazy"
+						src="https://maps.google.com/maps?width=300&amp;height=100&amp;hl=en&amp;q=Protospace%2C%20Calgary&amp;ie=UTF8&amp;t=&amp;z=12&amp;iwloc=B&amp;output=embed"
+						title="Map to Protospace"
+					></iframe>
+				</section>
+			</aside>
+		</div>
+	</div>
+	<footer>
+		<div class="footer-inner">
+			<div class="footer-links">
+				<div><a href="https://www.youtube.com/user/calgaryprotospace/playlists" class="external">YouTube</a></div>
+				<div><a href="https://wiki.protospace.ca/Faq" class="external">F.A.Q.</a></div>
+				<div><a href="https://www.facebook.com/CalgaryProtospace/" class="external">Facebook</a></div>
+			</div>
+			<p>PROTOSPACE 2026 · All rights reserved</p>
+		</div>
+	</footer>
+</body>
+
+</html>

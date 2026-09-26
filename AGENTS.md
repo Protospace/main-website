@@ -18,6 +18,7 @@ This is the static website for Protospace, a non-profit makerspace in Calgary, A
   - `/index.html`
   - `/about/index.html`
   - `/the-space/index.html`
+  - `/tools/index.html`
   - `/join-us/index.html`
   - `/contact/index.html`
   - `/wood-shop/index.html`
@@ -67,7 +68,7 @@ Keep source code pleasant for humans to read and edit.
 
 When adding or editing a page, match the existing structure:
 
-- Header with Protospace logo and links to About, Spaces, Membership, Wiki, Portal, and Contact
+- Header with Protospace logo and links to About, Spaces, Tools, Membership, Wiki, Portal, and Contact
 - Main page content with one meaningful `<h1>`
 - Sidebar containing the current open-house information, address, parking details, map iframe, and search control where applicable
 - Footer containing YouTube, FAQ, and Facebook links
