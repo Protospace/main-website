@@ -390,6 +390,7 @@ footer p {
 .tools-search-controls {
 	display: flex;
 	gap: 8px;
+	max-width: 520px;
 }
 .tools-search input {
 	min-width: 0;
