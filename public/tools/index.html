@@ -86,7 +86,7 @@
 						Browse the tools and equipment available to Protospace members. This catalog
 						comes from the <a href="https://wiki.protospace.ca/Tools_we_have" class="external">Protospace Wiki</a>.
 					</p>
-					<h2>Search</h2>
+					<h2 id="tools-search-heading">Search</h2>
 					<div class="tools-search">
 						<label for="tool-search">Search tools <span id="tool-results-count" class="tools-results-count" hidden> - Results: …</span></label>
 						<div class="tools-search-controls">
@@ -149,7 +149,7 @@
 									headingText.textContent = category;
 									const backLink = document.createElement("a");
 									backLink.className = "category-back";
-									backLink.href = "#tools-toc";
+									backLink.href = "#tools-search-heading";
 									backLink.textContent = "Back to Top";
 									heading.append(headingText, backLink);
 									list.append(heading);
