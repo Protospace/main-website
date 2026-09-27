@@ -259,9 +259,7 @@ footer a {
 }
 footer p {
 	text-align: center;
-	font:
-		300 24px "Yanone Kaffeesatz",
-		sans-serif;
+	font: 16px/1.5 Lato, sans-serif;
 	margin: 0;
 }
 .footer img {
