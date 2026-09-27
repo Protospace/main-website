@@ -21,8 +21,9 @@ WIKI_URL = "https://wiki.protospace.ca/Tools_we_have"
 WIKI_ROOT = "https://wiki.protospace.ca"
 COOKIE = "human_check=verified"
 ROOT = Path(__file__).resolve().parent
-OUTPUT = ROOT / "tools.json"
-IMAGE_DIR = ROOT / "assets" / "tools"
+PUBLIC_ROOT = ROOT / "public"
+OUTPUT = PUBLIC_ROOT / "tools.json"
+IMAGE_DIR = PUBLIC_ROOT / "assets" / "tools"
 
 
 class ToolsParser(HTMLParser):

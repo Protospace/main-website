@@ -6,7 +6,7 @@ This is the static website for Protospace, a non-profit makerspace in Calgary, A
 
 ## Source of truth
 
-- Edit the HTML, CSS, and metadata files directly.
+- Edit the HTML, CSS, and metadata files directly under `public/`.
 - Do not create or reintroduce a static-site generator.
 - Do not add a build script that overwrites manually maintained pages.
 - There is intentionally no `build.js` or equivalent generator.
@@ -14,7 +14,7 @@ This is the static website for Protospace, a non-profit makerspace in Calgary, A
 
 ## Page structure
 
-- Every page must be an `index.html` inside its own route directory:
+- Every page must be an `index.html` inside its own route directory under `public/`:
   - `/index.html`
   - `/the-space/index.html`
   - `/tools/index.html`
@@ -89,7 +89,7 @@ If this information changes, update the sidebar, relevant page copy, JSON-LD, an
 
 ## Assets
 
-- Store local images in `/assets/`.
+- Store local images in `public/assets/`.
 - Use descriptive filenames rather than WordPress upload names such as `photo_6_2023-06-06_16-39-08.jpg`.
 - Remove unused downloaded image variants when it is safe to do so.
 - Update every reference when renaming or removing an asset.
@@ -177,6 +177,7 @@ Before finishing an HTML change:
 - Run structural validation when available, for example:
 
   ```bash
+  cd public/
   npx html-validate \
   	--rule doctype-style:off \
   	--rule void-style:off \
@@ -190,6 +191,7 @@ Before finishing an HTML change:
 - Start a local static server and smoke-test every route:
 
   ```bash
+  cd public/
   python3 -m http.server 8765
   ```
 

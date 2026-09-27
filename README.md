@@ -19,9 +19,10 @@ The Protospace WordPress site has been replaced with static HTML and CSS pages. 
    git checkout -b update-page
    ```
 
-4. Edit the HTML pages, `styles.css`, or files in `assets/`. Preview the site locally with any static web server, for example:
+4. Edit the HTML pages, `public/styles.css`, or files in `public/assets/`. Preview the site locally from the public directory with any static web server, for example:
 
    ```bash
+   cd public/
    python3 -m http.server
    ```
 
