@@ -2,7 +2,7 @@
 	font-family: "Grand Hotel";
 	font-style: normal;
 	font-weight: 400;
-	font-display: optional;
+	font-display: swap;
 	src: url("/assets/fonts/grand-hotel.woff2") format("woff2");
 }
 @font-face {
