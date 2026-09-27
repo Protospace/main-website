@@ -109,7 +109,8 @@ header {
 	text-decoration-thickness: 0.08em;
 }
 .nav a.external,
-.footer-links a.external {
+.footer-links a.external,
+footer p a.external {
 	background-image: none;
 	padding-right: 0;
 	display: inline-flex;
@@ -117,7 +118,8 @@ header {
 	gap: 4px;
 }
 .nav a.external::after,
-.footer-links a.external::after {
+.footer-links a.external::after,
+footer p a.external::after {
 	width: 12px;
 	height: 12px;
 	flex: 0 0 12px;
