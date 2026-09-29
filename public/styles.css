@@ -278,11 +278,11 @@ footer p {
 	}
 	.nav {
 		display: grid;
-		grid-template-columns: repeat(3, auto);
-		justify-content: center;
-		column-gap: 20px;
-		row-gap: 10px;
-		margin-top: 20px;
+		grid-template-columns: repeat(3, 1fr);
+		width: 100%;
+		max-width: 480px;
+		margin: 20px auto 0;
+		row-gap: 15px;
 	}
 	.nav a {
 		justify-self: center;
